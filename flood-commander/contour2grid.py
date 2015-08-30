@@ -1,15 +1,21 @@
 import os
 import math
+import configparser
 import fiona
 
 
-class Terrain:
+class TerrainModel:
     
-    def __init__(self, temp_dir='./temp'):
+    def __init__(self, ini_file='../flood.ini'):
         self.xyz = []
-        self.temp_dir = temp_dir
-        if not os.path.exists(temp_dir):
-            os.makedirs(temp_dir)
+        #self.temp_dir = temp_dir
+        config = configparser.ConfigParser(allow_no_value=True)
+        config.read(ini_file)
+        print(config.sections(), end='\n\n')
+        for d in config['Directories']:
+            print(d)
+        '''if not os.path.exists(temp_dir):
+            os.makedirs(temp_dir)'''
         
     def contour2xyz(self, shpfile, col, grid_size, bbox = None):
         """Generate xyz values from contour lines
@@ -147,11 +153,11 @@ class Terrain:
             #print('-COL_PALETTE 0', file = fout)
 
 if __name__ == '__main__':
-    T = Terrain()
-    t = T.contour2xyz('contours_clipped.shp','HEIGHT', 2)
+    T = TerrainModel()
+    '''t = T.contour2xyz('contours_clipped.shp','HEIGHT', 2)
     print(len(T.xyz), T.addpts)
     print(t)
     T.writexyz()
     print(T.grid_dim(2))
-    T.saga_batch()
+    T.saga_batch()'''
     
