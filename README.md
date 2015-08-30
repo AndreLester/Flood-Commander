@@ -46,5 +46,9 @@ The simulation results exported from [HEC-RAS](http://www.hec.usace.army.mil/sof
 * Input data validation
 * Support for [FEQ](http://il.water.usgs.gov/proj/feq/)
 
+##10. Similar Projects
 
+* [RiverGIS](https://github.com/erpas/rivergis)
+* [pyras](https://github.com/PyHydro/pyras)
+* [Giswater](https://github.com/Giswater/giswater)
 
