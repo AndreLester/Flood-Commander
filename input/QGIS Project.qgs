@@ -18,35 +18,32 @@
   </layer-tree-group>
   <relations/>
   <mapcanvas>
-    <units>degrees</units>
+    <units>meters</units>
     <extent>
-      <xmin>31.03121823301571425</xmin>
-      <ymin>-23.92059787407380966</ymin>
-      <xmax>31.04710875496090949</xmax>
-      <ymax>-23.90358746446909421</ymax>
+      <xmin>2736.21744179001461816</xmin>
+      <ymin>-2646636.75635980255901814</ymin>
+      <xmax>5558.53096196084516123</xmax>
+      <ymax>-2644588.72075176006183028</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>1</projections>
     <destinationsrs>
       <spatialrefsys>
-        <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
-        <srsid>3452</srsid>
-        <srid>4326</srid>
-        <authid>EPSG:4326</authid>
-        <description>WGS 84</description>
-        <projectionacronym>longlat</projectionacronym>
+        <proj4>+proj=tmerc +lat_0=0 +lon_0=31 +k=1 +x_0=0 +y_0=0 +axis=enu +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+        <srsid>26832</srsid>
+        <srid>320002153</srid>
+        <authid>ZANGI:ZANGI:HBKNO31</authid>
+        <description>South African CRS : HBK_NO_31</description>
+        <projectionacronym>tmerc</projectionacronym>
         <ellipsoidacronym>WGS84</ellipsoidacronym>
-        <geographicflag>true</geographicflag>
+        <geographicflag>false</geographicflag>
       </spatialrefsys>
     </destinationsrs>
     <layer_coordinate_transform_info>
-      <layer_coordinate_transform destAuthId="EPSG:4326" srcAuthId="ZANGI:ZANGI:HBKNO31" srcDatumTransform="-1" destDatumTransform="-1" layerid="watercourse_benfarm220150830221930054"/>
-      <layer_coordinate_transform destAuthId="EPSG:4326" srcAuthId="USER:100000" srcDatumTransform="-1" destDatumTransform="-1" layerid="bounding_box20150830223202473"/>
-      <layer_coordinate_transform destAuthId="EPSG:4326" srcAuthId="ZANGI:ZANGI:HBKNO31" srcDatumTransform="-1" destDatumTransform="-1" layerid="Final_Flood20150830222917512"/>
-      <layer_coordinate_transform destAuthId="EPSG:4326" srcAuthId="USER:100000" srcDatumTransform="-1" destDatumTransform="-1" layerid="watercourse20150830222039943"/>
-      <layer_coordinate_transform destAuthId="EPSG:4326" srcAuthId="USER:100000" srcDatumTransform="-1" destDatumTransform="-1" layerid="1m_contours20150830221944383"/>
-      <layer_coordinate_transform destAuthId="EPSG:4326" srcAuthId="USER:100000" srcDatumTransform="-1" destDatumTransform="-1" layerid="x_sections20150830222859072"/>
-      <layer_coordinate_transform destAuthId="EPSG:4326" srcAuthId="ZANGI:ZANGI:HBKNO31" srcDatumTransform="-1" destDatumTransform="-1" layerid="x_sections_benfarm_alternative220150830222702073"/>
+      <layer_coordinate_transform destAuthId="ZANGI:ZANGI:HBKNO31" srcAuthId="USER:100000" srcDatumTransform="-1" destDatumTransform="-1" layerid="bounding_box20150830223202473"/>
+      <layer_coordinate_transform destAuthId="ZANGI:ZANGI:HBKNO31" srcAuthId="USER:100000" srcDatumTransform="-1" destDatumTransform="-1" layerid="watercourse20150830222039943"/>
+      <layer_coordinate_transform destAuthId="ZANGI:ZANGI:HBKNO31" srcAuthId="USER:100000" srcDatumTransform="-1" destDatumTransform="-1" layerid="1m_contours20150830221944383"/>
+      <layer_coordinate_transform destAuthId="ZANGI:ZANGI:HBKNO31" srcAuthId="USER:100000" srcDatumTransform="-1" destDatumTransform="-1" layerid="x_sections20150830222859072"/>
     </layer_coordinate_transform_info>
   </mapcanvas>
   <visibility-presets/>
@@ -460,8 +457,6 @@
             </layer>
           </symbol>
         </source-symbol>
-        <colorramp type="randomcolors" name="[source]"/>
-        <invertedcolorramp value="0"/>
         <rotation/>
         <sizescale scalemethod="diameter"/>
         <effect enabled="0" type="effectStack">
@@ -1845,15 +1840,39 @@
     </maplayer>
   </projectlayers>
   <properties>
-    <SpatialRefSys>
-      <ProjectCRSProj4String type="QString">+proj=longlat +datum=WGS84 +no_defs</ProjectCRSProj4String>
-      <ProjectCrs type="QString">EPSG:4326</ProjectCrs>
-      <ProjectCRSID type="int">3452</ProjectCRSID>
-      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
-    </SpatialRefSys>
+    <WMSContactPerson type="QString"></WMSContactPerson>
+    <WMSOnlineResource type="QString"></WMSOnlineResource>
+    <WMSUseLayerIDs type="bool">false</WMSUseLayerIDs>
+    <WMSContactOrganization type="QString"></WMSContactOrganization>
+    <WMSKeywordList type="QStringList">
+      <value></value>
+    </WMSKeywordList>
+    <WFSUrl type="QString"></WFSUrl>
     <Paths>
       <Absolute type="bool">false</Absolute>
     </Paths>
+    <WMSServiceTitle type="QString"></WMSServiceTitle>
+    <WFSLayers type="QStringList"/>
+    <WMSContactMail type="QString"></WMSContactMail>
+    <PositionPrecision>
+      <DecimalPlaces type="int">2</DecimalPlaces>
+      <Automatic type="bool">true</Automatic>
+      <DegreeFormat type="QString">D</DegreeFormat>
+    </PositionPrecision>
+    <WCSUrl type="QString"></WCSUrl>
+    <WMSContactPhone type="QString"></WMSContactPhone>
+    <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
+    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
+    <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
+    <Measure>
+      <Ellipsoid type="QString">WGS84</Ellipsoid>
+    </Measure>
+    <WMSPrecision type="QString">8</WMSPrecision>
+    <WFSTLayers>
+      <Insert type="QStringList"/>
+      <Update type="QStringList"/>
+      <Delete type="QStringList"/>
+    </WFSTLayers>
     <Gui>
       <SelectionColorBluePart type="int">0</SelectionColorBluePart>
       <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
@@ -1900,12 +1919,33 @@
         <value>0.000000</value>
       </LayerSnappingToleranceList>
     </Digitizing>
-    <PositionPrecision>
-      <DecimalPlaces type="int">2</DecimalPlaces>
-      <Automatic type="bool">true</Automatic>
-    </PositionPrecision>
+    <Identify>
+      <disabledLayers type="QStringList"/>
+    </Identify>
+    <Macros>
+      <pythonCode type="QString"></pythonCode>
+    </Macros>
+    <WMSAccessConstraints type="QString"></WMSAccessConstraints>
+    <WCSLayers type="QStringList"/>
     <Legend>
       <filterByMap type="bool">false</filterByMap>
     </Legend>
+    <SpatialRefSys>
+      <ProjectCRSProj4String type="QString">+proj=tmerc +lat_0=0 +lon_0=31 +k=1 +x_0=0 +y_0=0 +axis=enu +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</ProjectCRSProj4String>
+      <ProjectCrs type="QString">ZANGI:ZANGI:HBKNO31</ProjectCrs>
+      <ProjectCRSID type="int">26832</ProjectCRSID>
+      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+    </SpatialRefSys>
+    <DefaultStyles>
+      <Fill type="QString"></Fill>
+      <Line type="QString"></Line>
+      <Marker type="QString"></Marker>
+      <RandomColors type="bool">true</RandomColors>
+      <AlphaInt type="int">255</AlphaInt>
+      <ColorRamp type="QString"></ColorRamp>
+    </DefaultStyles>
+    <WMSFees type="QString"></WMSFees>
+    <WMSImageQuality type="int">90</WMSImageQuality>
+    <WMSUrl type="QString"></WMSUrl>
   </properties>
 </qgis>

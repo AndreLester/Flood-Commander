@@ -6,16 +6,15 @@ import fiona
 
 class TerrainModel:
     
-    def __init__(self, ini_file='../flood.ini'):
+    def __init__(self, ini_file):
         self.xyz = []
-        #self.temp_dir = temp_dir
-        config = configparser.ConfigParser(allow_no_value=True)
-        config.read(ini_file)
-        print(config.sections(), end='\n\n')
-        for d in config['Directories']:
-            print(d)
-        '''if not os.path.exists(temp_dir):
-            os.makedirs(temp_dir)'''
+        self.addpts = 0
+        self.config = configparser.ConfigParser(allow_no_value=True)
+        self.config.read(ini_file)
+        print(self.config.sections(), end='\n\n')
+        for d in self.config['Directories']:
+            if not os.path.exists(d):
+                os.makedirs(d)
         
     def contour2xyz(self, shpfile, col, grid_size, bbox = None):
         """Generate xyz values from contour lines
@@ -40,7 +39,6 @@ class TerrainModel:
             
         """
         with fiona.open(shpfile) as sf:
-            self.addpts = 0
             for i, line in enumerate(sf):
                 pts = list(line['geometry']['coordinates'])
                 x1, y1 = pts[0][0], pts[0][1]
@@ -69,8 +67,17 @@ class TerrainModel:
                     self.xyz.append([x1, y1, value])
                     x1, y1 = x2, y2
         self.xyz.append([x1, y1, value])
-        
         return(self.grid_dim(grid_size))
+        
+    def pts2xyz(self, shpfile, col, bbox = None):
+        """Adds the height points to self.xyz as well"""
+        
+        with fiona.open(shpfile) as sf:
+            for i, pt in enumerate(sf):
+                x, y = pt['geometry']['coordinates'] #Test
+                value = line['properties'][col]
+                self.xyz.append([x, y, value])
+                self.addpts += 1
         
     def grid_dim(self, grid_size):
         """Calculates the dimensions of the grid for a particular cell size
@@ -134,14 +141,14 @@ class TerrainModel:
             print('-USER_SIZE', str(self.grid_size), file = fout, end = ' ')
             print('-USER_GRID "../temp/temporary.sgrd"', file = fout)
             
-            # Now the grid is clipped to a polygon
+            '''# Now the grid is clipped to a polygon
             print('shapes_grid 7', file = fout, end = ' ')
             print('-OUTPUT "../temp/Main_Grid.sgrd"', 
                   file = fout, end = ' ')
             print('-INPUT "../temp/temporary.sgrd"', 
                   file = fout, end = ' ')
             print('-POLYGONS "../input/shapefiles_proj/areapolygon.shp"', 
-                  file = fout)
+                  file = fout)'''
             
             # Export the grid as an image to view
             print('io_grid_image 0', file = fout, end = ' ')
@@ -153,7 +160,7 @@ class TerrainModel:
             #print('-COL_PALETTE 0', file = fout)
 
 if __name__ == '__main__':
-    T = TerrainModel()
+    T = TerrainModel('../notebook/flood.ini')
     '''t = T.contour2xyz('contours_clipped.shp','HEIGHT', 2)
     print(len(T.xyz), T.addpts)
     print(t)
